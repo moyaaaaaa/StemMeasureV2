@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
-    api-level="23"
+    abi="armeabi-v7a,armeabi"
+    api-level="22"
     density="xhdpi"
     format="7"
-    timestamp="29540470045677" >
+    timestamp="56328460502171" >
 
     <task
         name="javac"
-        duration="2939" />
+        duration="511" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="1785" />
+        duration="63" />
     <task
         name="verifier"
-        duration="227" />
+        duration="10" />
 
     <artifact
         location="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/outputs/apk/usbCameraTest-debug.apk"
         type="MAIN" />
 
-    <build timestamp="29540470045677" >
+    <build timestamp="56328460502171" >
         <artifact
             location="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/outputs/apk/usbCameraTest-debug.apk"
             type="MAIN" />
