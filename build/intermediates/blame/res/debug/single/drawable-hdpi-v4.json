@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/res/merged/debug/drawable-hdpi-v4/stemtemplate6_1200px.bmp",
+        "source": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/drawable-hdpi/stemtemplate6_1200px.bmp"
+    },
+    {
+        "merged": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/res/merged/debug/drawable-hdpi-v4/basetemplate2_1000px.bmp",
+        "source": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/drawable-hdpi/basetemplate2_1000px.bmp"
+    },
+    {
+        "merged": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/res/merged/debug/drawable-hdpi-v4/capture.bmp",
+        "source": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/drawable-hdpi/capture.bmp"
+    },
+    {
+        "merged": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png",
+        "source": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/res/merged/debug/drawable-hdpi-v4/stemtemplate7_1000px.bmp",
+        "source": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/drawable-hdpi/stemtemplate7_1000px.bmp"
+    },
+    {
+        "merged": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/res/merged/debug/drawable-hdpi-v4/stemtemplate5_1200px.bmp",
+        "source": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/drawable-hdpi/stemtemplate5_1200px.bmp"
+    },
+    {
+        "merged": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/res/merged/debug/drawable-hdpi-v4/stemtemplate8_1000px.bmp",
+        "source": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/drawable-hdpi/stemtemplate8_1000px.bmp"
+    }
+]

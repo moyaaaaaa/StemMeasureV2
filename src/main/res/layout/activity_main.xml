@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ /*
+ * UVCCamera
+ * library and sample to access to UVC web camera on non-rooted Android device
+ *
+ * Copyright (c) 2014-2015 saki t_saki@serenegiant.com
+ *
+ * File name: activity_main.xml
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ * All files in the folder are under this Apache License, Version 2.0.
+ * Files in the jni/libjpeg, jni/libusb, jin/libuvc, jni/rapidjson folder may have a different license, see the respective files.
+*/
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.serenegiant.usbcameratest.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <com.serenegiant.widget.UVCCameraTextureView
+        android:id="@+id/UVCCameraTextureView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#ff000000"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_above="@+id/button1"
+        android:layout_below="@+id/imageButton1" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:contentDescription="@string/camera"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_camera"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calibration"
+        android:id="@+id/button1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am DistanceMeasureMan!!"
+        android:id="@+id/textView1"
+        android:layout_toRightOf="@+id/imageButton1"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/imageButton1" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1"
+        android:scaleType="centerCrop"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/UVCCameraTextureView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/button1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resume"
+        android:id="@+id/button3"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stem Measure"
+        android:id="@+id/button2"
+        android:layout_below="@+id/UVCCameraTextureView1"
+        android:layout_toRightOf="@+id/button1"
+        android:layout_toLeftOf="@+id/button3"
+        android:layout_toStartOf="@+id/button3" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner1"
+        android:entries="@array/spinner_list"
+        android:spinnerMode="dropdown"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView1"
+        android:layout_above="@+id/UVCCameraTextureView1"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
