@@ -4,6 +4,7 @@
         <item>stemTemp6(髭が生えてる茎)</item>
         <item>stemTemp7(最近撮った茎)</item>
         <item>stemTemp8(造花の茎)</item>
+        <item>自分で作ったテンプレート</item>
     </string-array></file><file path="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style><style name="AppBaseTheme" parent="android:Theme.Light">

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:27:1-45:12
+ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:27:1-46:12
 	package
 		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:28:5-44
 		INJECTED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml
@@ -13,32 +13,36 @@ ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/sr
 	android:versionCode
 		INJECTED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml
 		INJECTED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:30:5-81
+	android:name
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:30:22-78
 application
-ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:30:5-43:19
+ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:31:5-44:19
 	android:label
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:33:9-41
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:34:9-41
 	android:allowBackup
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:31:9-35
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:32:9-35
 	android:icon
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:32:9-45
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:33:9-45
 	android:theme
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:34:9-40
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:35:9-40
 activity#com.serenegiant.usbcameratest.MainActivity
-ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:35:9-42:20
+ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:36:9-43:20
 	android:label
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:37:13-45
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:38:13-45
 	android:name
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:36:13-70
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:37:13-70
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:38:13-41:29
+ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:39:13-42:29
 action#android.intent.action.MAIN
-ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:39:17-69
+ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:40:17-69
 	android:name
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:39:25-66
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:40:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:40:17-77
+ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:41:17-77
 	android:name
-		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:40:27-74
+		ADDED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml:41:27-74
 uses-sdk
 INJECTED from /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [UVCCamera-master:libuvccamera:unspecified] /Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/AndroidManifest.xml:7:5-9:41

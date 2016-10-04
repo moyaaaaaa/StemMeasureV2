@@ -7,9 +7,9 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endLine": 7,
+                    "endLine": 8,
                     "endColumn": 19,
-                    "endOffset": 264
+                    "endOffset": 298
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/strings.xml",
@@ -17,19 +17,19 @@
                         "startLine": 28,
                         "startColumn": 4,
                         "startOffset": 1069,
-                        "endLine": 33,
+                        "endLine": 34,
                         "endColumn": 19,
-                        "endOffset": 1278
+                        "endOffset": 1312
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 9,
+                    "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 518,
+                    "startOffset": 552,
                     "endColumn": 57,
-                    "endOffset": 571
+                    "endOffset": 605
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/dimens.xml",
@@ -44,11 +44,11 @@
             },
             {
                 "to": {
-                    "startLine": 10,
+                    "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 576,
+                    "startOffset": 610,
                     "endColumn": 55,
-                    "endOffset": 627
+                    "endOffset": 661
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/dimens.xml",
@@ -63,11 +63,11 @@
             },
             {
                 "to": {
-                    "startLine": 11,
+                    "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 632,
+                    "startOffset": 666,
                     "endColumn": 42,
-                    "endOffset": 670
+                    "endOffset": 704
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/dimens.xml",
@@ -82,11 +82,11 @@
             },
             {
                 "to": {
-                    "startLine": 12,
+                    "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 675,
+                    "startOffset": 709,
                     "endColumn": 48,
-                    "endOffset": 719
+                    "endOffset": 753
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -101,11 +101,11 @@
             },
             {
                 "to": {
-                    "startLine": 13,
+                    "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 724,
+                    "startOffset": 758,
                     "endColumn": 45,
-                    "endOffset": 765
+                    "endOffset": 799
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -120,11 +120,11 @@
             },
             {
                 "to": {
-                    "startLine": 14,
+                    "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 770,
+                    "startOffset": 804,
                     "endColumn": 46,
-                    "endOffset": 812
+                    "endOffset": 846
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -139,11 +139,11 @@
             },
             {
                 "to": {
-                    "startLine": 15,
+                    "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 817,
+                    "startOffset": 851,
                     "endColumn": 46,
-                    "endOffset": 859
+                    "endOffset": 893
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -158,11 +158,11 @@
             },
             {
                 "to": {
-                    "startLine": 16,
+                    "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 864,
+                    "startOffset": 898,
                     "endColumn": 50,
-                    "endOffset": 910
+                    "endOffset": 944
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/strings.xml",
@@ -177,11 +177,11 @@
             },
             {
                 "to": {
-                    "startLine": 17,
+                    "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 915,
+                    "startOffset": 949,
                     "endColumn": 41,
-                    "endOffset": 952
+                    "endOffset": 986
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -196,11 +196,11 @@
             },
             {
                 "to": {
-                    "startLine": 18,
+                    "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 957,
+                    "startOffset": 991,
                     "endColumn": 57,
-                    "endOffset": 1010
+                    "endOffset": 1044
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -215,11 +215,11 @@
             },
             {
                 "to": {
-                    "startLine": 19,
+                    "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 1015,
+                    "startOffset": 1049,
                     "endColumn": 43,
-                    "endOffset": 1054
+                    "endOffset": 1088
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -234,11 +234,11 @@
             },
             {
                 "to": {
-                    "startLine": 20,
+                    "startLine": 21,
                     "startColumn": 4,
-                    "startOffset": 1059,
+                    "startOffset": 1093,
                     "endColumn": 56,
-                    "endOffset": 1111
+                    "endOffset": 1145
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/exploded-aar/UVCCamera-master/libuvccamera/unspecified/res/values/values.xml",
@@ -253,12 +253,12 @@
             },
             {
                 "to": {
-                    "startLine": 21,
+                    "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 1116,
-                    "endLine": 27,
+                    "startOffset": 1150,
+                    "endLine": 28,
                     "endColumn": 12,
-                    "endOffset": 1402
+                    "endOffset": 1436
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/styles.xml",
@@ -274,12 +274,12 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 1407,
-                    "endLine": 30,
+                    "startOffset": 1441,
+                    "endLine": 31,
                     "endColumn": 12,
-                    "endOffset": 1562
+                    "endOffset": 1596
                 },
                 "from": {
                     "file": "/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/src/main/res/values/styles.xml",

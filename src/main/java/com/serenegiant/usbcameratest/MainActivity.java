@@ -28,6 +28,7 @@ import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.hardware.usb.UsbDevice;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.View;
@@ -53,9 +54,15 @@ import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
+import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -64,6 +71,7 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 	static {
 		System.loadLibrary("opencv_java3");
 	}
+	private static final int TEMPLATE_HEIGHT = 1000; //テンプレート画像の高さ[px]
 
     // for thread pool
     private static final int CORE_POOL_SIZE = 1;		// initial/minimum threads
@@ -257,7 +265,16 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 				button4.setText("Create Template");
 
 				//切り出し
+				Mat templateImg = new Mat();
 				searchImg.submat(templateRect).copyTo(showImg);
+				showImg.copyTo(templateImg);
+
+				//リサイズ
+				double pitch = TEMPLATE_HEIGHT / showImg.height();
+				Imgproc.resize(showImg, templateImg, new Size(showImg.width()*pitch, showImg.height()*pitch), pitch, pitch, Imgproc.INTER_AREA);
+
+				//画像保存
+				new template_image(MainActivity.this).saveImg(templateImg);
 
 				//画像表示
 				Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
