@@ -255,6 +255,16 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 			}else{ //選択終了
 				createTemplateFlag = false;
 				button4.setText("Create Template");
+
+				//切り出し
+				searchImg.submat(templateRect).copyTo(showImg);
+
+				//画像表示
+				Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
+				Utils.matToBitmap(showImg, bitmap);
+				imageView1.setVisibility(View.VISIBLE);
+				imageView1.setImageBitmap(bitmap);
+
 				templateRect.x = -1;
 				templateRect.y = -1;
 			}
