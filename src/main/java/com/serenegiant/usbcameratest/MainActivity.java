@@ -24,6 +24,7 @@ package com.serenegiant.usbcameratest;
 */
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.hardware.usb.UsbDevice;
@@ -298,10 +299,12 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 		}
 	};
 
+
+	//タッチイベント処理
 	@Override
 	public boolean onTouchEvent(MotionEvent e) {
 		//テンプレートのトリミング開始
-		if(createTemplateFlag) {
+		if (createTemplateFlag) {
 			if (templateRect.x == -1 || templateRect.y == -1) {
 				templateRect.x = (int) e.getX();
 				templateRect.y = (int) e.getY();
@@ -309,10 +312,11 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 				templateRect.width = (int) e.getX() - templateRect.x;
 				templateRect.height = (int) e.getY() - templateRect.y;
 			}
+			textView1.setText("tl:" + templateRect.tl());
 
 			//選択範囲描画
 			showImg = searchImg.clone();
-			Imgproc.rectangle(showImg, templateRect.tl(), templateRect.br(), new Scalar(0,0,255), 5);
+			Imgproc.rectangle(showImg, templateRect.tl(), templateRect.br(), new Scalar(0, 0, 255), 5);
 			Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
 			Utils.matToBitmap(showImg, bitmap);
 			imageView1.setImageBitmap(bitmap);

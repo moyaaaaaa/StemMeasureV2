@@ -1,7 +1,0 @@
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/serenegiant/usbcameratest/MainActivity$6$1.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/serenegiant/usbcameratest/MainActivity$6.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/serenegiant/usbcameratest/MainActivity.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/serenegiant/usbcameratest/MainActivity$6$1$1$1.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/serenegiant/usbcameratest/MainActivity$6$1$2$1.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/serenegiant/usbcameratest/MainActivity$6$1$2.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/serenegiant/usbcameratest/MainActivity$6$1$1.class
