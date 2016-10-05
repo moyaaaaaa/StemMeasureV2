@@ -1,0 +1,2 @@
+CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
+CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/stem_measure$override.class

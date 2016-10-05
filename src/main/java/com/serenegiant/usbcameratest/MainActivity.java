@@ -24,10 +24,13 @@ package com.serenegiant.usbcameratest;
 */
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.hardware.usb.UsbDevice;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -52,9 +55,15 @@ import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
+import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -63,6 +72,7 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 	static {
 		System.loadLibrary("opencv_java3");
 	}
+	private static final int TEMPLATE_HEIGHT = 1000; //テンプレート画像の高さ[px]
 
     // for thread pool
     private static final int CORE_POOL_SIZE = 1;		// initial/minimum threads
@@ -81,13 +91,18 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 	private Button button1;
 	private Button button2;
 	private Button button3;
+	private Button button4;
 	private Spinner spinner1;
 	private ImageView imageView1;
 	private TextView textView1;
 	private Surface mPreviewSurface;
 
 	template_image tmpImg;
+	Mat searchImg;
+	Mat showImg;
 	stem_measure measure;
+	private boolean createTemplateFlag;
+	private Rect templateRect;
 
 
 	@Override
@@ -99,11 +114,13 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 		button1 = (Button)findViewById(R.id.button1);
 		button2 = (Button)findViewById(R.id.button2);
 		button3 = (Button)findViewById(R.id.button3);
+		button4 = (Button)findViewById(R.id.button4);
 		imageView1 = (ImageView)findViewById(R.id.imageView1);
 		imageButton1.setOnClickListener(imageButton1ClickListener);
 		button1.setOnClickListener(button1ClickListener);
 		button2.setOnClickListener(button2ClickListener);
 		button3.setOnClickListener(button3ClickListener);
+		button4.setOnClickListener(button4ClickListener);
 		spinner1 = (Spinner)findViewById(R.id.spinner1);
 
 
@@ -116,6 +133,10 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 
 		tmpImg = new template_image(MainActivity.this);
 		measure = new stem_measure(MainActivity.this);
+		createTemplateFlag = false;
+		templateRect = new Rect();
+		templateRect.x = -1;
+		templateRect.y = -1;
 	}
 
 	@Override
@@ -204,7 +225,7 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 
 
 			//デバッグ表示
-			Mat showImg = searchImg.clone();
+			showImg = searchImg.clone();
 			Imgproc.rectangle(showImg, measure.stemRect.tl(), measure.stemRect.br(), new Scalar(0,0,255), 5);
 			Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
 			Utils.matToBitmap(showImg, bitmap);
@@ -220,6 +241,89 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 		}
 	};
 
+	//テンプレート画像作成
+	OnClickListener button4ClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			//矩形選択
+			if(createTemplateFlag == false) {
+				createTemplateFlag = true;
+				button4.setText("Create!!");
+
+				//検索対象画像取得
+				Bitmap tmp = mUVCCameraView.getBitmap();
+				searchImg = new Mat();
+				Utils.bitmapToMat(tmp, searchImg);
+
+				//画像表示
+				showImg = searchImg.clone();
+				Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
+				Utils.matToBitmap(showImg, bitmap);
+				imageView1.setVisibility(View.VISIBLE);
+				imageView1.setImageBitmap(bitmap);
+			}else{ //選択終了
+				createTemplateFlag = false;
+				button4.setText("Create Template");
+
+				//負のwidthをheightを正になるように変換
+				if(templateRect.width < 0) {
+					templateRect.width = -templateRect.width;
+					templateRect.x = templateRect.x - templateRect.width;
+				}
+				if(templateRect.height < 0) {
+					templateRect.height = -templateRect.height;
+					templateRect.y = templateRect.y - templateRect.height;
+				}
+
+				//切り出し
+				Mat templateImg = new Mat();
+				searchImg.submat(templateRect).copyTo(showImg);
+				showImg.copyTo(templateImg);
+
+				//リサイズ
+				double pitch = TEMPLATE_HEIGHT / showImg.height();
+				Imgproc.resize(showImg, templateImg, new Size(showImg.width()*pitch, showImg.height()*pitch), pitch, pitch, Imgproc.INTER_AREA);
+
+				//画像保存
+				new template_image(MainActivity.this).saveImg(templateImg);
+
+				//画像表示
+				Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
+				Utils.matToBitmap(showImg, bitmap);
+				imageView1.setVisibility(View.VISIBLE);
+				imageView1.setImageBitmap(bitmap);
+
+				templateRect.x = -1;
+				templateRect.y = -1;
+			}
+		}
+	};
+
+
+	//タッチイベント処理
+	@Override
+	public boolean onTouchEvent(MotionEvent e) {
+		//テンプレートのトリミング開始
+		if (createTemplateFlag) {
+			if (templateRect.x == -1 || templateRect.y == -1) {
+				templateRect.x = (int) e.getX();
+				templateRect.y = (int) e.getY();
+			} else {
+				templateRect.width = (int) e.getX() - templateRect.x;
+				templateRect.height = (int) e.getY() - templateRect.y;
+			}
+			textView1.setText("tl:" + templateRect.tl());
+
+			//選択範囲描画
+			showImg = searchImg.clone();
+			Imgproc.rectangle(showImg, templateRect.tl(), templateRect.br(), new Scalar(0, 0, 255), 5);
+			Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
+			Utils.matToBitmap(showImg, bitmap);
+			imageView1.setImageBitmap(bitmap);
+		}
+
+		return true;
+	}
 
 	private final OnDeviceConnectListener mOnDeviceConnectListener = new OnDeviceConnectListener() {
 		@Override

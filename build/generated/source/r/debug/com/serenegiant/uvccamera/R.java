@@ -15,8 +15,8 @@ public final class R {
 		public static final int vertical_margin = 0x7f070006;
 	}
 	public static final class id {
-		public static final int LinearLayout1 = 0x7f09000c;
-		public static final int name_text = 0x7f09000d;
+		public static final int LinearLayout1 = 0x7f09000d;
+		public static final int name_text = 0x7f09000e;
 		public static final int spinner1 = 0x7f09000b;
 		public static final int textView1 = 0x7f090007;
 	}

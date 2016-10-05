@@ -111,8 +111,18 @@
         android:entries="@array/spinner_list"
         android:spinnerMode="dropdown"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView1"
+        android:layout_toEndOf="@+id/button4"
         android:layout_above="@+id/UVCCameraTextureView1"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/button4" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Template"
+        android:id="@+id/button4"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_toEndOf="@+id/textView1" />
 
 </RelativeLayout>

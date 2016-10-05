@@ -23,7 +23,7 @@ public class stem_measure {
     public final TextView textView1;
     public template_image tmpImg;
 
-    public final double pitch = 0.99;
+    public final double pitch = 0.95;
     public final int minLimitSize = 50;
     public final double Base_mm = 5;
     public int stemDistance_px, baseDistance_px; //（茎/比較対象）の幅[px]
