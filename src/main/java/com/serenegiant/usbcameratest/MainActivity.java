@@ -264,6 +264,16 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 				createTemplateFlag = false;
 				button4.setText("Create Template");
 
+				//負のwidthをheightを正になるように変換
+				if(templateRect.width < 0) {
+					templateRect.width = -templateRect.width;
+					templateRect.x = templateRect.x - templateRect.width;
+				}
+				if(templateRect.height < 0) {
+					templateRect.height = -templateRect.height;
+					templateRect.y = templateRect.y - templateRect.height;
+				}
+
 				//切り出し
 				Mat templateImg = new Mat();
 				searchImg.submat(templateRect).copyTo(showImg);
