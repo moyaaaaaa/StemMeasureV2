@@ -2,11 +2,14 @@ package com.serenegiant.usbcameratest;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -23,6 +26,7 @@ import org.opencv.imgproc.Imgproc;
 public class stem_measure {
     public final Context context;
     public final TextView textView1;
+    private final ImageView imageView1;
 
     public final double pitch = 0.95;
     public final int minLimitSize = 50;
@@ -33,7 +37,8 @@ public class stem_measure {
 
     public stem_measure(Context context){ //コンストラクタ
         this.context = context;
-        textView1 = (TextView)((com.serenegiant.usbcameratest.MainActivity) context).findViewById(R.id.textView1);
+        textView1 = (TextView)((MainActivity) context).findViewById(R.id.textView1);
+        imageView1 = (ImageView)((MainActivity) context).findViewById(R.id.imageView1);
 
         baseDistance_mm = Base_mm;
         baseDistance_px = new calibration_config(context).loadCalibrationConfig();
@@ -43,11 +48,53 @@ public class stem_measure {
         }
     }
 
-    public void calibration(){ //比較対象のピクセル数を求めるラッパー関数
+    /**
+     * キャリブレーション処理をしたりするラッパー
+     *
+     * @param searchImg
+     * @param baseImg
+     */
+    public void calibration(Mat searchImg, Mat baseImg){
+        //テンプレートマッチング
+        this.baseRect = this.templateMatching(searchImg, baseImg);
+        this.baseDistance_px = this.baseRect.height;
+        textView1.setText(String.valueOf(this.baseDistance_px) + "px");
 
+        //外部ファイルにキャリブレーション結果を保存
+        if(new calibration_config(context).saveCalibrationConfig(this.baseDistance_px)) {
+        }else {
+            Toast.makeText(context, "save error!!", Toast.LENGTH_SHORT).show();
+        }
+
+
+        //デバッグ表示
+        Mat showImg = searchImg.clone();
+        Imgproc.rectangle(showImg, this.baseRect.tl(), this.baseRect.br(), new Scalar(255,0,0), 5);
+        Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(showImg, bitmap);
+        imageView1.setVisibility(View.VISIBLE);
+        imageView1.setImageBitmap(bitmap);
     }
-    public void stemMeasure() { //比較対象を使って茎径を求めるラッパー関数
 
+
+    /**
+     * 茎径計測とかしたりするラッパー
+     *
+     * @param searchImg
+     * @param stemImg
+     */
+    public Mat stemMeasure(Mat searchImg, Mat stemImg) {
+        //マッチング
+        this.stemRect = this.templateMatching(searchImg, stemImg);
+        this.stemDistance_px = this.stemRect.height;
+        this.stemDistance_mm = this.pixelToMillimeter(this.stemDistance_px, this.baseDistance_px, this.baseDistance_mm);
+        textView1.setText(String.valueOf(this.stemDistance_px) + "px, " + String.valueOf(this.stemDistance_mm) + "mm");
+
+        //デバッグ表示描画
+        Mat showImg = searchImg.clone();
+        Imgproc.rectangle(showImg, this.stemRect.tl(), this.stemRect.br(), new Scalar(0,0,255), 5);
+
+        return showImg;
     }
 
     public Rect templateMatching(Mat srcImg, Mat templateImg){
