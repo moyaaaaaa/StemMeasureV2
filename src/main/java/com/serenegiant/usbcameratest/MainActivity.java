@@ -184,8 +184,10 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 		}
 	};
 
-	//ボタンクリック時処理
-	//キャリブレーション処理
+	/**
+	 * ボタンクリックでキャリブレーション処理
+	 *
+	 */
 	OnClickListener button1ClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
@@ -194,52 +196,16 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 			Mat searchImg = new Mat();
 			Utils.bitmapToMat(tmp, searchImg);
 
-			//テンプレートマッチング
-			measure.baseRect = measure.templateMatching(searchImg, tmpImg.baseImg);
-			measure.baseDistance_px = measure.baseRect.height;
-			textView1.setText(String.valueOf(measure.baseDistance_px) + "px");
-
-			//外部ファイルにキャリブレーション結果を保存
-			if(new calibration_config(MainActivity.this).saveCalibrationConfig(measure.baseDistance_px)) {
-			}else {
-				Toast.makeText(MainActivity.this, "save error!!", Toast.LENGTH_SHORT).show();
-			}
-
-
-			//デバッグ表示
-			Mat showImg = searchImg.clone();
-			Imgproc.rectangle(showImg, measure.baseRect.tl(), measure.baseRect.br(), new Scalar(255,0,0), 5);
-			Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
-			Utils.matToBitmap(showImg, bitmap);
-			imageView1.setVisibility(View.VISIBLE);
-			imageView1.setImageBitmap(bitmap);
+			//キャリブレーションとか
+			measure.calibration(searchImg, tmpImg.baseImg);
 		}
 	};
 
-	//茎計計測処理
+
 	OnClickListener button2ClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
-			//検索対象画像取得
-			Bitmap tmp = mUVCCameraView.getBitmap();
-			Mat searchImg = new Mat();
-			Utils.bitmapToMat(tmp, searchImg);
 
-			//マッチング
-			tmpImg.init(MainActivity.this); //テンプレート画像再読み込み
-			measure.stemRect = measure.templateMatching(searchImg, tmpImg.stemImg);
-			measure.stemDistance_px = measure.stemRect.height;
-			measure.stemDistance_mm = measure.pixelToMillimeter(measure.stemDistance_px, measure.baseDistance_px, measure.baseDistance_mm);
-			textView1.setText(String.valueOf(measure.stemDistance_px) + "px, " + String.valueOf(measure.stemDistance_mm) + "mm");
-
-
-			//デバッグ表示
-			showImg = searchImg.clone();
-			Imgproc.rectangle(showImg, measure.stemRect.tl(), measure.stemRect.br(), new Scalar(0,0,255), 5);
-			Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
-			Utils.matToBitmap(showImg, bitmap);
-			imageView1.setVisibility(View.VISIBLE);
-			imageView1.setImageBitmap(bitmap);
 		}
 	};
 
@@ -373,8 +339,24 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 							runOnUiThread(new Runnable() {
 								@Override
 								public void run() {
-									Toast.makeText(MainActivity.this, "onButton(button=" + button + "; " +
-											"state=" + state + ")", Toast.LENGTH_SHORT).show();
+									if(state == 1) {
+										//検索対象画像取得
+										Bitmap tmp = mUVCCameraView.getBitmap();
+										Mat searchImg = new Mat();
+										Utils.bitmapToMat(tmp, searchImg);
+
+										//テンプレート画像再読み込み
+										tmpImg.init(MainActivity.this);
+
+										//計測とか
+										Mat showImg = measure.stemMeasure(searchImg, tmpImg.stemImg);
+
+										//表示
+										Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
+										Utils.matToBitmap(showImg, bitmap);
+										imageView1.setVisibility(View.VISIBLE);
+										imageView1.setImageBitmap(bitmap);
+									}
 								}
 							});
 						}
