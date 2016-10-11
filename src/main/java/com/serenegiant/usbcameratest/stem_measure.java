@@ -1,9 +1,11 @@
 package com.serenegiant.usbcameratest;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -21,7 +23,6 @@ import org.opencv.imgproc.Imgproc;
 public class stem_measure {
     public final Context context;
     public final TextView textView1;
-    public template_image tmpImg;
 
     public final double pitch = 0.95;
     public final int minLimitSize = 50;
@@ -33,6 +34,13 @@ public class stem_measure {
     public stem_measure(Context context){ //コンストラクタ
         this.context = context;
         textView1 = (TextView)((com.serenegiant.usbcameratest.MainActivity) context).findViewById(R.id.textView1);
+
+        baseDistance_mm = Base_mm;
+        baseDistance_px = new calibration_config(context).loadCalibrationConfig();
+        if(baseDistance_px == -1) {
+            baseDistance_px = 0;
+            Toast.makeText(context, "load error!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void calibration(){ //比較対象のピクセル数を求めるラッパー関数
