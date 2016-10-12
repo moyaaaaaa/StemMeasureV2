@@ -354,6 +354,7 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 
 										//ファイルに書き込み
 										String data = String.valueOf(measure.stemDistance_mm);
+										data += "," + spinner1.getSelectedItem().toString();
 										new measurement_data(MainActivity.this).addData(data);
 
 										//表示

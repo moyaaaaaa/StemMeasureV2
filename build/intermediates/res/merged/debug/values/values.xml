@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinner_list">
-        <item>stemTemp5(ツルツルな茎)</item>
-        <item>stemTemp6(髭が生えてる茎)</item>
-        <item>stemTemp7(最近撮った茎)</item>
-        <item>stemTemp8(造花の茎)</item>
-        <item>自分で作ったテンプレート</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
     </string-array>
     <declare-styleable name="CameraBridgeViewBase"><attr format="boolean" name="show_fps"/><attr format="integer" name="camera_id"><enum name="any" value="-1"/><enum name="back" value="99"/><enum name="front" value="98"/></attr></declare-styleable>
     <dimen name="activity_horizontal_margin">16dp</dimen>
