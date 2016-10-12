@@ -77,40 +77,14 @@ public class template_image extends Activity{
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = false; //リサイズしないで読み込む
 
-        //茎テンプレート画像読み込み
-        switch (spinner1.getSelectedItemPosition()){
-            case 0:
-                //stemTemplateName = "stemtemplate5_1200px";
-                stemImg = roadImg("stemtemplate5_1200px");
-                break;
-            case 1:
-                //stemTemplateName = "stemtemplate6_1200px";
-                stemImg = roadImg("stemtemplate6_1200px");
-                break;
-            case 2:
-                //stemTemplateName = "stemtemplate7_1000px";
-                stemImg = roadImg("stemtemplate7_1000px");
-                break;
-            case 3:
-                //stemTemplateName = "stemtemplate8_1000px";
-                stemImg = roadImg("stemtemplate8_1000px");
-                break;
-            case 4:
-                Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-                Cursor cursor = context.getContentResolver().query(uri, null, "_display_name LIKE ?" ,new String[] { TEMPLATE_IMAGE_NAME } , "_ID DESC");
-                cursor.moveToFirst();
-                long id = cursor.getLong(cursor.getColumnIndexOrThrow("_id"));
-                Bitmap bitmap = BitmapFactory.decodeFile(TEMPLATE_IMAGE_PATH + "/" + TEMPLATE_IMAGE_NAME, options);
-                stemImg = new Mat(bitmap.getWidth(), bitmap.getHeight(), CvType.CV_32F);
-                Utils.bitmapToMat(bitmap, stemImg);
-                break;
-        }
-        /*
-        int imageID = context.getResources().getIdentifier(stemTemplateName, "drawable", context.getPackageName());
-        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), imageID, options);
+        //茎のテンプレート画像を読み込む
+        Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+        Cursor cursor = context.getContentResolver().query(uri, null, "_display_name LIKE ?" ,new String[] { TEMPLATE_IMAGE_NAME } , "_ID DESC");
+        cursor.moveToFirst();
+        long id = cursor.getLong(cursor.getColumnIndexOrThrow("_id"));
+        Bitmap bitmap = BitmapFactory.decodeFile(TEMPLATE_IMAGE_PATH + "/" + TEMPLATE_IMAGE_NAME, options);
         stemImg = new Mat(bitmap.getWidth(), bitmap.getHeight(), CvType.CV_32F);
         Utils.bitmapToMat(bitmap, stemImg);
-        */
     }
 
 
