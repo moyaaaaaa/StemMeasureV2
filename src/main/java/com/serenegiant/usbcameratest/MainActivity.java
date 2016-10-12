@@ -339,6 +339,7 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 							runOnUiThread(new Runnable() {
 								@Override
 								public void run() {
+									//茎径計測処理
 									if(state == 1) {
 										//検索対象画像取得
 										Bitmap tmp = mUVCCameraView.getBitmap();
@@ -350,6 +351,10 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 
 										//計測とか
 										Mat showImg = measure.stemMeasure(searchImg, tmpImg.stemImg);
+
+										//ファイルに書き込み
+										String data = String.valueOf(measure.stemDistance_mm);
+										new measurement_data(MainActivity.this).addData(data);
 
 										//表示
 										Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
