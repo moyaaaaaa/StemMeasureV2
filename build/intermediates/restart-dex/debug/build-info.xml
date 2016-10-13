@@ -4,42 +4,34 @@
     api-level="22"
     density="xhdpi"
     format="7"
-    timestamp="157245427077425"
-    verifier="COMPATIBLE" >
+    timestamp="165170863422176" >
 
     <task
         name="javac"
-        duration="244" />
+        duration="284" />
     <task
         name="instant-run-dex"
-        duration="920" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="14" />
+        duration="8" />
     <task
         name="verifier"
-        duration="6" />
+        duration="2" />
 
     <artifact
-        location="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+        type="DEX" />
 
-    <build timestamp="156225223477119" >
+    <build timestamp="164295083095119" >
         <artifact
             location="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/outputs/apk/usbCameraTest-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="157157242053369" >
+    <build timestamp="165170863422176" >
         <artifact
             location="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
             type="DEX" />
-    </build>
-    <build
-        timestamp="157245427077425"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

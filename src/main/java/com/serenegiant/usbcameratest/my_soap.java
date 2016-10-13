@@ -26,8 +26,9 @@ public class my_soap extends AsyncTask<String, Integer, Boolean> {
     private URL url;
     private static final String host = "202.15.110.21";
     private static final String file = "/axis2/services/FIAPStorage";
-    private static final String pointId = "http://j.kisarazu.ac.jp/omae/POSTTEST/Value";
-    private static final String body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><ns2:dataRQ xmlns:ns2=\"http://soap.fiap.org/\"><transport xmlns=\"http://gutp.jp/fiap/2009/11/\"><body><point id=\"%s\"><value time=\"%s\">%s</value></point></body></transport></ns2:dataRQ></soapenv:Body></soapenv:Envelope>";
+    private static final String pointId1 = "http://j.kisarazu.ac.jp/PlantFactory/StemMeasureTest/Value";
+    private static final String pointId2 = "http://j.kisarazu.ac.jp/PlantFactory/StemMeasureTest/Area";
+    private static final String body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><ns2:dataRQ xmlns:ns2=\"http://soap.fiap.org/\"><transport xmlns=\"http://gutp.jp/fiap/2009/11/\"><body><point id=\"%s\"><value time=\"%s\">%s</value></point><point id=\"%s\"><value time=\"%s\">%s</value></point></body></transport></ns2:dataRQ></soapenv:Body></soapenv:Envelope>";
 
     public my_soap() {
 
@@ -35,10 +36,10 @@ public class my_soap extends AsyncTask<String, Integer, Boolean> {
 
     @Override
     protected Boolean doInBackground(String... data) {
-        return sendData(data[0]);
+        return sendData(data[0], data[1]);
     }
 
-    public boolean sendData(String data) {
+    public boolean sendData(String data, String area) {
         try {
             url = new URL("http", host, file);
             httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -59,7 +60,7 @@ public class my_soap extends AsyncTask<String, Integer, Boolean> {
             //送信するxml生成
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'+09:00'");
             String stringDate = simpleDateFormat.format(new Date()).toString();
-            String content = String.format(body, pointId, stringDate, data);
+            String content = String.format(body, pointId1, stringDate, data, pointId2, stringDate, area);
 
             printWriter.print(content);
             printWriter.close();
