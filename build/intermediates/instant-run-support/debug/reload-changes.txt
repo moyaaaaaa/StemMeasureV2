@@ -1,2 +1,0 @@
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/my_soap$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
