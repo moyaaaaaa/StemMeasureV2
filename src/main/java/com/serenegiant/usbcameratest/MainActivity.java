@@ -101,6 +101,7 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 	Mat searchImg;
 	Mat showImg;
 	stem_measure measure;
+	my_soap soap;
 	private boolean createTemplateFlag;
 	private Rect templateRect;
 
@@ -133,6 +134,7 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 
 		tmpImg = new template_image(MainActivity.this);
 		measure = new stem_measure(MainActivity.this);
+		soap = new my_soap();
 		createTemplateFlag = false;
 		templateRect = new Rect();
 		templateRect.x = -1;
@@ -356,6 +358,10 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 										String data = String.valueOf(measure.stemDistance_mm);
 										data += "," + spinner1.getSelectedItem().toString();
 										new measurement_data(MainActivity.this).addData(data);
+
+										//クラウドにアップロード
+										//soap.sendData(String.valueOf(measure.stemDistance_mm));
+										soap.execute(String.valueOf(measure.stemDistance_mm));
 
 										//表示
 										Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);

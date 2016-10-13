@@ -1,11 +1,2 @@
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/MainActivity$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/R$layout$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/R$id$override.class
+CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/my_soap$override.class
 CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/stem_measure$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/R$styleable$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/template_image$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/R$string$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/R$style$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/uvccamera/R$id$override.class
-CHANGED,/Users/Tomoya/AndroidStudioProjects/UVCCamera-master/usbCameraTest/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/serenegiant/usbcameratest/R$xml$override.class
