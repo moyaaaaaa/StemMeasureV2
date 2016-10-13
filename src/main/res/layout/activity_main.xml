@@ -100,7 +100,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stem Measure"
+        android:text="Send"
         android:id="@+id/button2"
         android:layout_below="@+id/UVCCameraTextureView1"
         android:layout_toLeftOf="@+id/button3"

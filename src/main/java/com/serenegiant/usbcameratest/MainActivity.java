@@ -202,9 +202,15 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 	};
 
 
+	/**
+	 * ボタンクリックでデータアップロード
+	 */
 	OnClickListener button2ClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
+			//クラウドにアップロード
+			new my_soap().execute(String.format("%.2f", measure.stemDistance_mm), spinner1.getSelectedItem().toString());
+			Toast.makeText(MainActivity.this, "アップロード完了", Toast.LENGTH_SHORT).show();
 
 		}
 	};
@@ -359,9 +365,6 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 										String data = String.valueOf(measure.stemDistance_mm);
 										data += "," + spinner1.getSelectedItem().toString();
 										new measurement_data(MainActivity.this).addData(data);
-
-										//クラウドにアップロード
-										soap.execute(String.valueOf(measure.stemDistance_mm));
 
 										//表示
 										Bitmap bitmap = Bitmap.createBitmap(showImg.width(), showImg.height(), Bitmap.Config.ARGB_8888);
