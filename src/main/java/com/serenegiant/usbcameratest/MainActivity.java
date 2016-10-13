@@ -139,8 +139,6 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 		templateRect = new Rect();
 		templateRect.x = -1;
 		templateRect.y = -1;
-
-		textView1.setText("base_px:" + String.valueOf(measure.baseDistance_px) + "px");
 	}
 
 	@Override
@@ -353,6 +351,9 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 
 										//計測とか
 										Mat showImg = measure.stemMeasure(searchImg, tmpImg.stemImg);
+										Toast.makeText(MainActivity.this, "計測完了", Toast.LENGTH_SHORT).show();
+										String tmpStr = String.format("%.2f", measure.stemDistance_mm);
+										textView1.setText(tmpStr + "mm");
 
 										//ファイルに書き込み
 										String data = String.valueOf(measure.stemDistance_mm);
@@ -360,7 +361,6 @@ public final class MainActivity extends Activity implements CameraDialog.CameraD
 										new measurement_data(MainActivity.this).addData(data);
 
 										//クラウドにアップロード
-										//soap.sendData(String.valueOf(measure.stemDistance_mm));
 										soap.execute(String.valueOf(measure.stemDistance_mm));
 
 										//表示

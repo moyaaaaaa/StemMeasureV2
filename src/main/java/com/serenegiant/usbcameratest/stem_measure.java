@@ -44,7 +44,8 @@ public class stem_measure {
         baseDistance_px = new calibration_config(context).loadCalibrationConfig();
         if(baseDistance_px == -1) {
             baseDistance_px = 0;
-            Toast.makeText(context, "load error!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "キャリブレーション結果が読み込めませんでした．", Toast.LENGTH_SHORT).show();
+            textView1.setText("キャリブレーションを行ってください．");
         }
     }
 
@@ -65,7 +66,6 @@ public class stem_measure {
         }else {
             Toast.makeText(context, "save error!!", Toast.LENGTH_SHORT).show();
         }
-
 
         //デバッグ表示
         Mat showImg = searchImg.clone();
@@ -88,7 +88,6 @@ public class stem_measure {
         this.stemRect = this.templateMatching(searchImg, stemImg);
         this.stemDistance_px = this.stemRect.height;
         this.stemDistance_mm = this.pixelToMillimeter(this.stemDistance_px, this.baseDistance_px, this.baseDistance_mm);
-        textView1.setText(String.valueOf(this.stemDistance_px) + "px, " + String.valueOf(this.stemDistance_mm) + "mm");
 
         //デバッグ表示描画
         Mat showImg = searchImg.clone();

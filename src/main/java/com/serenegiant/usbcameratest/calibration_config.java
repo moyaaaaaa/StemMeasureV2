@@ -21,6 +21,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
 /**
+ * キャリブレーション結果を保存したり読み込んだりする
+ *
  * Created by Tomoya on 16/10/06.
  */
 public class calibration_config {
@@ -41,18 +43,6 @@ public class calibration_config {
             outputStreamWriter.flush();
             outputStreamWriter.close();
 
-            /*
-            //DB登録
-            ContentValues values = new ContentValues();
-            ContentResolver contentResolver = context.getContentResolver();
-            values.put(MediaStore.Images.Media.TITLE, TEMPLATE_IMAGE_NAME);
-            values.put(MediaStore.Images.Media.DISPLAY_NAME, TEMPLATE_IMAGE_NAME);
-            values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
-            values.put(MediaStore.Images.Media.MIME_TYPE,"text/plain");
-            values.put(MediaStore.Images.Media.DATA, context.getFilesDir().toString() + "/" + TEMPLATE_IMAGE_NAME);
-            contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-*/
             return true;
         }catch (IOException e){
             e.printStackTrace();
